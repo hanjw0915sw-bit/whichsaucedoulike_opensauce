@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>캠퍼스 길 잃지 않기 지도</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+        }
+        #map {
+            width: 100vw;
+            height: 100vh;
+        }
+        .title-box {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: white;
+            padding: 10px 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="title-box">
+        <b>🏫 캠퍼스 길 잃지 않기</b><br>
+        주요 건물을 클릭하면 위치가 표시됩니다.
+    </div>
+
+    <div id="map"></div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script>
+        // ⭐ 캠퍼스 중심 좌표 (예: 고려대)
+        const campusCenter = [37.5894, 127.0336];
+
+        // 지도 초기화
+        const map = L.map("map").setView(campusCenter, 16);
+
+        // 오픈스트리트맵 배경
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            attribution: "© OpenStreetMap Contributors"
+        }).addTo(map);
+
+        // ⭐ 주요 건물 예시
+        const buildings = [
+            {
+                name: "과학관",
+                coords: [37.5887, 127.0318],
+                description: "과학대학 실험동 및 강의실"
+            },
+            {
+                name: "도서관",
+                coords: [37.5899, 127.0345],
+                description: "중앙 도서관"
+            },
+            {
+                name: "학생회관",
+                coords: [37.5906, 127.0321],
+                description: "학생 복지 및 카페 위치"
+            }
+        ];
+
+        // 지도에 마커 추가
+        buildings.forEach(b => {
+            L.marker(b.coords).addTo(map)
+             .bindPopup(`<b>${b.name}</b><br>${b.description}`);
+        });
+    </script>
+
+</body>
+</html>
