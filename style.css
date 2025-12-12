@@ -15,16 +15,6 @@ body {
     /* 임시 배경색 */
 }
 
-#controls {
-    height: 15vh;
-    padding: 10px;
-    background: #f0f0f0;
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-}
 
 #controls h2 {
     margin: 0 15px 0 0;
@@ -45,3 +35,4 @@ body {
     border: none;
 
 }
+
