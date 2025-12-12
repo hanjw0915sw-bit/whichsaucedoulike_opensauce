@@ -15,24 +15,13 @@ body {
     /* 임시 배경색 */
 }
 
-
 #controls h2 {
     margin: 0 15px 0 0;
     font-size: 1.2em;
 }
 
-#controls input,
-#controls button {
-    padding: 8px 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
 
-#controls button {
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-    border: none;
 
-}
+
+
 
